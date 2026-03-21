@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FuseTech Electrical Group | Licensed Electrician Padstow & Sydney</title>
+<meta name="description" content="Licensed electricians serving Padstow and all Sydney suburbs. Residential, commercial and industrial electrical. Call 0483 235 639 for a free quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#09090b;--dark:#0f1117;--dark2:#181b23;--dark3:#1f2330;
+  --orange:#f97316;--orange-lt:#fb923c;--orange-dim:rgba(249,115,22,.10);
+  --white:#fff;--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;
+  --g400:#9ca3af;--g600:#6b7280;--text:#0f1117;
+  --max:980px;--r:12px;--t:.26s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);line-height:1.6;overflow-x:hidden}
+
+.wrap{max-width:var(--max);width:100%;margin:0 auto;padding:0 22px}
+.lbl{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(26px,3.5vw,42px);line-height:1.1;color:var(--text)}
+.h2.inv{color:#fff}
+.sub{font-size:14.5px;color:var(--g600);line-height:1.75;margin-top:12px;max-width:460px}
+.sub.inv{color:rgba(255,255,255,.55)}
+
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;text-decoration:none;cursor:pointer;border:none;transition:var(--t);white-space:nowrap}
+.btn-or{background:var(--orange);color:#fff;box-shadow:0 2px 12px rgba(249,115,22,.28)}
+.btn-or:hover{background:var(--orange-lt);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.22)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.btn-lined{background:transparent;color:var(--text);border:1.5px solid var(--g200)}
+.btn-lined:hover{border-color:var(--text);transform:translateY(-1px)}
+
+/* TOPBAR */
+.topbar{background:var(--black);padding:8px 0}
+.tb-in{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tb-left{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.tb-a{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.5);text-decoration:none;transition:var(--t)}
+.tb-a:hover{color:var(--orange)}
+.tb-badge{background:var(--orange);color:#fff;font-size:10.5px;font-weight:700;padding:3px 11px;border-radius:6px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--g200)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:34px;height:34px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--text)}
+.logo-sub{font-size:9.5px;font-weight:500;color:var(--g400);letter-spacing:1.3px;text-transform:uppercase;margin-top:1px}
+.nav-ul{display:flex;align-items:center;gap:22px;list-style:none}
+.nav-ul a{font-size:13px;font-weight:500;color:var(--g600);text-decoration:none;transition:var(--t)}
+.nav-ul a:hover{color:var(--text)}
+.nav-r{display:flex;align-items:center;gap:11px}
+.nav-ph{text-decoration:none;display:flex;flex-direction:column;align-items:flex-end}
+.nav-ph-l{font-size:9px;font-weight:600;color:var(--g400);letter-spacing:1px;text-transform:uppercase}
+.nav-ph-n{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--text)}
+.ham{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--t)}
+
+/* HERO */
+.hero{background:var(--dark);position:relative;overflow:hidden;padding:76px 0 60px;display:flex;align-items:center}
+.hg1{position:absolute;top:-100px;right:-60px;width:480px;height:480px;background:radial-gradient(circle,rgba(249,115,22,.11),transparent 68%);pointer-events:none}
+.hg2{position:absolute;bottom:-80px;left:-40px;width:320px;height:320px;background:radial-gradient(circle,rgba(249,115,22,.06),transparent 70%);pointer-events:none}
+.hgl{position:absolute;inset:0;opacity:.022;background-image:linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);background-size:52px 52px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:center}
+
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);border-radius:6px;padding:5px 12px;margin-bottom:18px;animation:up .5s ease both}
+.hero-pill-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-pill span{font-size:11px;font-weight:600;color:var(--orange)}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,4.2vw,52px);line-height:1.06;color:#fff;margin-bottom:14px;animation:up .5s .07s ease both}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:420px;margin-bottom:28px;line-height:1.72;animation:up .5s .14s ease both}
+.hero-btns{display:flex;gap:9px;flex-wrap:wrap;animation:up .5s .21s ease both}
+.hero-tel{display:flex;align-items:center;gap:10px;margin-top:30px;animation:up .5s .28s ease both}
+.hero-tel-ring{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(249,115,22,.32);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-tel a{font-family:'Syne',sans-serif;font-weight:800;font-size:21px;color:#fff;text-decoration:none;transition:var(--t)}
+.hero-tel a:hover{color:var(--orange)}
+.hero-tel-l{font-size:10px;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.hc{background:var(--dark2);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px 20px;animation:up .5s .18s ease both}
+.hc-title{font-size:10px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:7px}
+.hc-title::before{content:'';width:3px;height:13px;background:var(--orange);border-radius:2px;display:block}
+.hc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;border-radius:7px;transition:var(--t)}
+.hc-row:hover{background:rgba(255,255,255,.04)}
+.hc-k{font-size:12px;color:rgba(255,255,255,.42)}
+.hc-v{font-size:12.5px;font-weight:600;color:#fff}
+.hc-v.or{color:var(--orange)}
+.hc-div{height:1px;background:rgba(255,255,255,.06);margin:10px 0}
+.hc-btns{display:flex;flex-direction:column;gap:7px}
+.hc-btns .btn{justify-content:center;font-size:13px;padding:11px 16px}
+
+/* TICKER */
+.ticker{background:var(--orange);padding:10px 0;overflow:hidden;max-width:100%;contain:layout}
+.ticker-track{display:flex;gap:32px;width:max-content;animation:tickL 26s linear infinite;white-space:nowrap}
+.ticker-track:hover{animation-play-state:paused}
+.tick{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#fff}
+.tick-sep{width:4px;height:4px;background:rgba(255,255,255,.3);border-radius:50%;flex-shrink:0}
+@keyframes tickL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* REVIEWS */
+.reviews{padding:68px 0;background:var(--dark);overflow:hidden;width:100%}
+.rev-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.rev-meta{display:flex;align-items:center;gap:7px;margin-top:8px}
+.rev-stars{display:flex;gap:2px}
+.rev-num{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:#fff}
+.rev-ct{font-size:11.5px;color:rgba(255,255,255,.35)}
+
+.mq{position:relative;overflow:hidden;max-width:100vw}
+.mq::before,.mq::after{content:'';position:absolute;top:0;bottom:0;width:72px;z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(to right,var(--dark),transparent)}
+.mq::after{right:0;background:linear-gradient(to left,var(--dark),transparent)}
+.mq-track{display:flex;gap:12px;width:max-content;padding:3px 0}
+.mq-l{animation:mqL 30s linear infinite}
+.mq-r{animation:mqR 38s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+@keyframes mqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+.rc{background:var(--dark2);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:18px 20px;width:272px;flex-shrink:0;transition:var(--t)}
+.rc:hover{border-color:rgba(249,115,22,.24);transform:translateY(-2px)}
+.rc-stars{color:var(--orange);font-size:12px;letter-spacing:1.5px;margin-bottom:8px}
+.rc-text{font-size:12.5px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:13px}
+.rc-au{display:flex;align-items:center;gap:8px}
+.rc-av{width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:10.5px;color:#fff;flex-shrink:0}
+.rc-name{font-weight:600;font-size:12px;color:#fff}
+.rc-loc{font-size:10.5px;color:rgba(255,255,255,.3)}
+.rc.acc{background:rgba(249,115,22,.07);border-color:rgba(249,115,22,.14)}
+
+/* SERVICES */
+.services{padding:76px 0;background:var(--g50)}
+.srv-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-bottom:36px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:100%}
+.sc{background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:26px 22px;transition:var(--t);position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:var(--t)}
+.sc:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.07)}
+.sc:hover::after{transform:scaleX(1)}
+.sc-icon{width:44px;height:44px;background:var(--orange-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:var(--t)}
+.sc:hover .sc-icon{background:var(--orange)}
+.sc:hover .sc-icon svg{stroke:#fff}
+.sc h3{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--text);margin-bottom:7px}
+.sc p{font-size:13px;color:var(--g600);line-height:1.65}
+.sc-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:5px}
+.sc-list li{font-size:12px;color:var(--g600);display:flex;align-items:center;gap:6px}
+.sc-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0}
+
+.sc-wide{grid-column:span 3;background:var(--dark);border-color:transparent;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.sc-wide::after{display:none}
+.sc-wide:hover{transform:none;box-shadow:none}
+.sc-wide h3{font-size:20px;color:#fff}
+.sc-wide p{color:rgba(255,255,255,.55)}
+.sc-wide .sc-list li{color:rgba(255,255,255,.6)}
+.sc-wide .sc-list li::before{background:var(--orange)}
+.sc-wide .sc-icon{background:rgba(249,115,22,.12)}
+.sc-stats{display:flex;flex-direction:column;gap:10px}
+.sc-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:14px 16px}
+.sc-stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;color:var(--orange)}
+.sc-stat-l{font-size:11.5px;color:rgba(255,255,255,.38);margin-top:2px}
+
+/* WHY */
+.why{padding:76px 0;background:#fff}
+.why-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.why-pts{display:flex;flex-direction:column;gap:4px;margin-top:24px}
+.wp{display:flex;gap:13px;align-items:flex-start;padding:14px;border-radius:9px;border:1px solid transparent;transition:var(--t)}
+.wp:hover{background:var(--g50);border-color:var(--g200)}
+.wp-icon{width:40px;height:40px;border-radius:9px;background:var(--orange-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:var(--t)}
+.wp:hover .wp-icon{background:var(--orange)}
+.wp:hover .wp-icon svg{stroke:#fff}
+.wp h4{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:2px}
+.wp p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.why-card{background:var(--dark);border-radius:14px;padding:32px 26px;position:relative;overflow:hidden}
+.why-card::after{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(249,115,22,.13),transparent 70%);pointer-events:none}
+.why-card h3{font-family:'Syne',sans-serif;font-weight:800;font-size:27px;color:#fff;line-height:1.15;margin-bottom:5px}
+.why-card h3 span{color:var(--orange)}
+.why-card > p{font-size:12.5px;color:rgba(255,255,255,.43);margin-bottom:20px}
+.wc-list{display:flex;flex-direction:column;gap:8px}
+.wci{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:10px 12px}
+.wci-dot{width:22px;height:22px;background:var(--orange);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wci span{font-size:12.5px;color:rgba(255,255,255,.72);font-weight:500}
+.wc-lic{margin-top:16px;display:inline-flex;align-items:center;gap:6px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.17);border-radius:6px;padding:8px 12px;font-size:11px;font-weight:600;color:var(--orange)}
+
+/* HOW */
+.how{padding:76px 0;background:var(--g50)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.hs{background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:32px 24px;text-align:center;transition:var(--t)}
+.hs:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.06);border-color:rgba(249,115,22,.18)}
+.hs-num{font-family:'Syne',sans-serif;font-weight:800;font-size:56px;color:var(--g200);line-height:1;margin-bottom:12px;transition:var(--t)}
+.hs:hover .hs-num{color:rgba(249,115,22,.16)}
+.hs-icon{width:48px;height:48px;background:var(--dark);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.hs h3{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--text);margin-bottom:7px}
+.hs p{font-size:13px;color:var(--g600);line-height:1.65}
+.how-cta{text-align:center;margin-top:32px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* AREAS */
+.areas{padding:76px 0;background:#fff}
+.areas-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.area-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.ap{background:var(--g100);border:1px solid var(--g200);border-radius:6px;padding:6px 13px;font-size:12px;font-weight:500;color:var(--g600);display:flex;align-items:center;gap:5px;transition:var(--t);cursor:default}
+.ap:hover{background:var(--orange-dim);border-color:rgba(249,115,22,.2);color:var(--orange)}
+.ap::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.areas-cta{background:var(--dark);border-radius:14px;padding:32px 26px}
+.areas-cta h3{font-family:'Syne',sans-serif;font-weight:800;font-size:21px;color:#fff;line-height:1.2;margin-bottom:8px}
+.areas-cta p{font-size:13px;color:rgba(255,255,255,.48);margin-bottom:18px;line-height:1.65}
+.areas-ph{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;color:var(--orange);text-decoration:none;display:block;margin-bottom:16px;transition:var(--t)}
+.areas-ph:hover{color:#fff}
+.hours-grid{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:1px}
+.hr-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.hr-row:last-child{border:none}
+.hr-day{font-size:12px;color:rgba(255,255,255,.42)}
+.hr-t{font-size:12px;font-weight:600;color:#fff}
+.hr-c{font-size:12px;font-weight:600;color:rgba(249,115,22,.7)}
+
+/* CONTACT */
+.contact{padding:76px 0;background:var(--dark)}
+.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.c-ph{background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.17);border-radius:11px;padding:22px;text-align:center;margin-top:22px}
+.c-ph-l{font-size:10px;font-weight:600;color:rgba(255,255,255,.32);letter-spacing:1.5px;text-transform:uppercase}
+.c-ph-n a{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--orange);text-decoration:none;display:block;margin:4px 0;transition:var(--t)}
+.c-ph-n a:hover{color:#fff}
+.c-ph-s{font-size:11.5px;color:rgba(255,255,255,.32)}
+.c-dets{display:flex;flex-direction:column;gap:11px;margin-top:18px}
+.cd{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.62)}
+.cd-icon{width:34px;height:34px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.17);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-form{background:#fff;border-radius:14px;padding:32px 28px}
+.c-form h3{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--text);margin-bottom:3px}
+.c-form > p{font-size:12.5px;color:var(--g600);margin-bottom:20px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--g600);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;border:1.5px solid var(--g200);border-radius:8px;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--text);background:var(--g50);transition:var(--t);outline:none;-webkit-appearance:none;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(249,115,22,.08)}
+.fg textarea{resize:vertical;min-height:86px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f-note{font-size:10.5px;color:var(--g400);text-align:center;margin-top:8px}
+.f-success{display:none;text-align:center;padding:22px}
+.f-si{width:48px;height:48px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.f-success h4{font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:var(--text);margin-bottom:4px}
+.f-success p{font-size:13px;color:var(--g600)}
+
+/* FOOTER */
+footer{background:var(--black);padding:48px 0 20px}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;margin-bottom:32px}
+.ft-brand .ft-logo{display:flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:12px}
+.ft-tag{font-size:12.5px;color:rgba(255,255,255,.36);line-height:1.65;max-width:210px}
+.ft-cl{display:flex;align-items:center;gap:6px;font-size:12.5px;color:rgba(255,255,255,.46);text-decoration:none;margin-top:9px;transition:var(--t)}
+.ft-cl:hover{color:var(--orange)}
+.ft-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:rgba(255,255,255,.82);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:7px}
+.ft-links a{font-size:12.5px;color:rgba(255,255,255,.38);text-decoration:none;transition:var(--t)}
+.ft-links a:hover{color:var(--orange)}
+.ft-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.26)}
+.ft-lic{font-size:11px;color:rgba(249,115,22,.5)}
+
+/* FLOAT */
+.float{position:fixed;bottom:18px;right:18px;z-index:999;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.float.on{opacity:1;pointer-events:all}
+.float-btn{display:flex;align-items:center;gap:7px;padding:11px 18px;border-radius:8px;background:var(--orange);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:13.5px;text-decoration:none;box-shadow:0 3px 16px rgba(249,115,22,.35);transition:var(--t)}
+.float-btn:hover{background:var(--orange-lt);transform:scale(1.02)}
+
+/* MOB NAV */
+.mob-nav{display:none;position:fixed;inset:0;background:var(--dark);z-index:200;padding:68px 22px 32px;flex-direction:column;overflow-y:auto}
+.mob-nav.open{display:flex}
+.mob-close{position:absolute;top:14px;right:18px;background:none;border:none;cursor:pointer;color:#fff;font-size:22px;line-height:1}
+.mob-nav a{font-family:'Syne',sans-serif;font-weight:700;font-size:26px;color:#fff;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);display:block;transition:var(--t)}
+.mob-nav a:hover{color:var(--orange)}
+.mob-btns{margin-top:24px;display:flex;flex-direction:column;gap:9px}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rev.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr}
+  .hc{display:none}
+  .hero{padding:56px 0 44px}
+  .why-in,.areas-in,.contact-in{grid-template-columns:1fr;gap:36px}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .sc-wide{grid-column:span 2;grid-template-columns:1fr}
+  .sc-stats{flex-direction:row;flex-wrap:wrap}
+  .sc-stat{flex:1;min-width:100px}
+  .how-grid{grid-template-columns:1fr;gap:10px}
+  .nav-ul{display:none}
+  .ham{display:flex}
+}
+@media(max-width:580px){
+  .tb-left{display:none}
+  .tb-in{justify-content:center}
+  .nav-ph{display:none}
+  .nav-in{height:56px}
+  .logo-sub{display:none}
+  .hero{padding:40px 0 32px}
+  .hero h1{font-size:clamp(26px,8vw,38px)}
+  .hero-sub{font-size:14px}
+  .hero-btns .btn{padding:11px 18px;font-size:13px}
+  .hero-tel{margin-top:24px}
+  .hero-tel a{font-size:18px}
+  .reviews,.services,.why,.how,.areas,.contact{padding:52px 0}
+  .rev-head{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:24px}
+  .srv-head{flex-direction:column;align-items:flex-start;gap:10px}
+  .srv-grid{grid-template-columns:1fr;gap:10px}
+  .sc-wide{grid-column:span 1;grid-template-columns:1fr}
+  .sc-stats{flex-direction:column}
+  .how-cta{flex-direction:column;align-items:center}
+  .how-cta .btn{width:100%;justify-content:center}
+  .areas-cta{padding:26px 20px}
+  .areas-ph{font-size:22px}
+  .c-form{padding:22px 16px}
+  .c-ph-n a{font-size:26px}
+  .f2{grid-template-columns:1fr}
+  footer{padding:40px 0 16px}
+  .ft-grid{grid-template-columns:1fr;gap:24px}
+  .ft-bot{flex-direction:column;align-items:flex-start;gap:4px}
+  .float{bottom:12px;right:12px}
+  .float-btn{font-size:13px;padding:10px 16px}
+  .rc{width:240px}
+  .mq::before,.mq::after{width:30px}
+  .h2{font-size:clamp(22px,6vw,34px)}
+  .area-pills{gap:5px}
+  .ap{font-size:11.5px;padding:5px 11px}
+}
+@media(max-width:340px){
+  .hero h1{font-size:24px}
+  .rc{width:210px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-in">
+      <div class="tb-left">
+        <a href="tel:0483235639" class="tb-a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg>0483 235 639</a>
+        <a href="mailto:Ftelectricialgroup@gmail.com" class="tb-a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Ftelectricialgroup@gmail.com</a>
+        <span class="tb-a">Lic. 480357C</span>
+      </div>
+      <span class="tb-badge">Mon–Sat · Open 24 Hours</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="#" class="logo">
+        <div class="logo-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div><div class="logo-name">FuseTech</div><div class="logo-sub">Electrical Group</div></div>
+      </a>
+      <ul class="nav-ul">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-r">
+        <a href="tel:0483235639" class="nav-ph"><span class="nav-ph-l">Call Now</span><span class="nav-ph-n">0483 235 639</span></a>
+        <a href="#contact" class="btn btn-or" style="padding:9px 18px;font-size:12.5px;">Free Quote</a>
+        <button class="ham" onclick="document.getElementById('mobNav').classList.add('open')"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="document.getElementById('mobNav').classList.remove('open')">✕</button>
+  <a href="#services" onclick="document.getElementById('mobNav').classList.remove('open')">Services</a>
+  <a href="#why" onclick="document.getElementById('mobNav').classList.remove('open')">Why Us</a>
+  <a href="#reviews" onclick="document.getElementById('mobNav').classList.remove('open')">Reviews</a>
+  <a href="#areas" onclick="document.getElementById('mobNav').classList.remove('open')">Areas</a>
+  <a href="#contact" onclick="document.getElementById('mobNav').classList.remove('open')">Contact</a>
+  <div class="mob-btns">
+    <a href="tel:0483235639" class="btn btn-or" style="justify-content:center;">Call 0483 235 639</a>
+    <a href="#contact" class="btn btn-ghost" style="justify-content:center;" onclick="document.getElementById('mobNav').classList.remove('open')">Get a Free Quote</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hg1"></div><div class="hg2"></div><div class="hgl"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div><span>Licensed Electricians · Padstow & All Sydney</span></div>
+        <h1>Professional<br>Electrical Work<br>Done <em>Right</em>,<br>First Time.</h1>
+        <p class="hero-sub">Residential, commercial and industrial electrical across Sydney. Licensed, insured, honest pricing.</p>
+        <div class="hero-btns">
+          <a href="tel:0483235639" class="btn btn-or"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg>Call Now</a>
+          <a href="#contact" class="btn btn-ghost">Free Quote →</a>
+        </div>
+        <div class="hero-tel">
+          <div class="hero-tel-ring"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg></div>
+          <div><div class="hero-tel-l">Call Sam directly</div><a href="tel:0483235639">0483 235 639</a></div>
+        </div>
+      </div>
+      <div class="hc">
+        <div class="hc-title">At a Glance</div>
+        <div class="hc-row"><span class="hc-k">Licence No.</span><span class="hc-v">480357C</span></div>
+        <div class="hc-row"><span class="hc-k">Coverage</span><span class="hc-v">All Greater Sydney</span></div>
+        <div class="hc-row"><span class="hc-k">Availability</span><span class="hc-v or">Mon–Sat 24 hr</span></div>
+        <div class="hc-row"><span class="hc-k">Insurance</span><span class="hc-v">Fully Insured</span></div>
+        <div class="hc-row"><span class="hc-k">Google Rating</span><span class="hc-v or">4.8 ★</span></div>
+        <div class="hc-row"><span class="hc-k">Pricing</span><span class="hc-v">Upfront & Honest</span></div>
+        <div class="hc-div"></div>
+        <div class="hc-btns">
+          <a href="tel:0483235639" class="btn btn-or">Call 0483 235 639</a>
+          <a href="#contact" class="btn btn-ghost" style="border-color:rgba(255,255,255,.13);font-size:12.5px;">Request a Quote Online</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="tick">⚡ Licensed & Insured</span><span class="tick-sep"></span>
+    <span class="tick">✓ Upfront Honest Pricing</span><span class="tick-sep"></span>
+    <span class="tick">⚡ Residential · Commercial · Industrial</span><span class="tick-sep"></span>
+    <span class="tick">✓ Mon–Sat Open 24 Hours</span><span class="tick-sep"></span>
+    <span class="tick">⚡ Lic. 480357C</span><span class="tick-sep"></span>
+    <span class="tick">✓ Quality Workmanship Guaranteed</span><span class="tick-sep"></span>
+    <span class="tick">⚡ All Sydney Suburbs</span><span class="tick-sep"></span>
+    <span class="tick">⚡ Licensed & Insured</span><span class="tick-sep"></span>
+    <span class="tick">✓ Upfront Honest Pricing</span><span class="tick-sep"></span>
+    <span class="tick">⚡ Residential · Commercial · Industrial</span><span class="tick-sep"></span>
+    <span class="tick">✓ Mon–Sat Open 24 Hours</span><span class="tick-sep"></span>
+    <span class="tick">⚡ Lic. 480357C</span><span class="tick-sep"></span>
+    <span class="tick">✓ Quality Workmanship Guaranteed</span><span class="tick-sep"></span>
+    <span class="tick">⚡ All Sydney Suburbs</span><span class="tick-sep"></span>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-head rev">
+      <div>
+        <span class="lbl">Customer Reviews</span>
+        <h2 class="h2 inv">What Customers Say</h2>
+        <div class="rev-meta">
+          <div class="rev-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f97316"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          </div>
+          <span class="rev-num">4.8</span>
+          <span class="rev-ct">Google Rating · 15 reviews</span>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-or" style="align-self:flex-end;">Get a Free Quote →</a>
+    </div>
+  </div>
+  <div class="mq" style="margin-bottom:12px;">
+    <div class="mq-track mq-l">
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Exceptional service! During a heavy thunderstorm I had a lighting issue and this company responded immediately. Arrived quickly, diagnosed efficiently, fixed on the spot."</p><div class="rc-au"><div class="rc-av">MT</div><div><div class="rc-name">M. Talha Khan</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Sam is very responsive, efficient and helpful. Used his services multiple times — very happy with the thoroughness and <strong style="color:rgba(249,115,22,.85)">quality of service.</strong>"</p><div class="rc-au"><div class="rc-av">ZM</div><div><div class="rc-name">Zeinab Makki</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Professional, reliable, and efficient.</strong> The team was friendly and completed the job perfectly. Will definitely use them again!"</p><div class="rc-au"><div class="rc-av">LH</div><div><div class="rc-name">Layel Hayek</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Always on time and consistently delivers quality work.</strong> Thank you, Sam and the team!"</p><div class="rc-au"><div class="rc-av">IA</div><div><div class="rc-name">Israa Ahmad</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Very honest and affordable</strong> in today's market. On time every time and the work is professionally performed."</p><div class="rc-au"><div class="rc-av">RH</div><div><div class="rc-name">The Renovater</div><div class="rc-loc">Sydney · 10 mo ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Samer is very <strong style="color:rgba(249,115,22,.85)">honest &amp; professional.</strong> Very happy with the quality of work."</p><div class="rc-au"><div class="rc-av">BB</div><div><div class="rc-name">Betty Boop</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+      <!-- dupe -->
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Exceptional service! During a heavy thunderstorm I had a lighting issue and this company responded immediately. Arrived quickly, diagnosed efficiently, fixed on the spot."</p><div class="rc-au"><div class="rc-av">MT</div><div><div class="rc-name">M. Talha Khan</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Sam is very responsive, efficient and helpful. Used his services multiple times — very happy with the thoroughness and <strong style="color:rgba(249,115,22,.85)">quality of service.</strong>"</p><div class="rc-au"><div class="rc-av">ZM</div><div><div class="rc-name">Zeinab Makki</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Professional, reliable, and efficient.</strong> The team was friendly and completed the job perfectly. Will definitely use them again!"</p><div class="rc-au"><div class="rc-av">LH</div><div><div class="rc-name">Layel Hayek</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Always on time and consistently delivers quality work.</strong> Thank you, Sam and the team!"</p><div class="rc-au"><div class="rc-av">IA</div><div><div class="rc-name">Israa Ahmad</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Very honest and affordable</strong> in today's market. On time every time and the work is professionally performed."</p><div class="rc-au"><div class="rc-av">RH</div><div><div class="rc-name">The Renovater</div><div class="rc-loc">Sydney · 10 mo ago</div></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Samer is very <strong style="color:rgba(249,115,22,.85)">honest &amp; professional.</strong> Very happy with the quality of work."</p><div class="rc-au"><div class="rc-av">BB</div><div><div class="rc-name">Betty Boop</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+    </div>
+  </div>
+  <div class="mq">
+    <div class="mq-track mq-r">
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Great service, would definitely recommend!"</p><div class="rc-au"><div class="rc-av">JB</div><div><div class="rc-name">John Badran</div><div class="rc-loc">Sydney · 4 mo ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Mate, <strong style="color:rgba(249,115,22,.85)">brilliant job</strong> — definitely will recommend to everyone 👍🏽"</p><div class="rc-au"><div class="rc-av">IS</div><div><div class="rc-name">Immortal Star</div><div class="rc-loc">Sydney · 4 mo ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Process was super easy to book. Showed up on time. Super easy and convenient."</p><div class="rc-au"><div class="rc-av">SM</div><div><div class="rc-name">Sarah Murray</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Honest, reliable and works with integrity.</strong> No cutting corners. Very happy."</p><div class="rc-au"><div class="rc-av">RT</div><div><div class="rc-name">RAD TAN</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"I recommend the electrician Sam. Came on time and done a good job."</p><div class="rc-au"><div class="rc-av">JS</div><div><div class="rc-name">Jessica S</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Honest reliable affordable prices</strong> 👍"</p><div class="rc-au"><div class="rc-av">MS</div><div><div class="rc-name">Mona Sleiman</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <!-- dupe -->
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Great service, would definitely recommend!"</p><div class="rc-au"><div class="rc-av">JB</div><div><div class="rc-name">John Badran</div><div class="rc-loc">Sydney · 4 mo ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Mate, <strong style="color:rgba(249,115,22,.85)">brilliant job</strong> — definitely will recommend to everyone 👍🏽"</p><div class="rc-au"><div class="rc-av">IS</div><div><div class="rc-name">Immortal Star</div><div class="rc-loc">Sydney · 4 mo ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"Process was super easy to book. Showed up on time. Super easy and convenient."</p><div class="rc-au"><div class="rc-av">SM</div><div><div class="rc-name">Sarah Murray</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Honest, reliable and works with integrity.</strong> No cutting corners. Very happy."</p><div class="rc-au"><div class="rc-av">RT</div><div><div class="rc-name">RAD TAN</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"I recommend the electrician Sam. Came on time and done a good job."</p><div class="rc-au"><div class="rc-av">JS</div><div><div class="rc-name">Jessica S</div><div class="rc-loc">Local Guide · 1 yr ago</div></div></div></div>
+      <div class="rc acc"><div class="rc-stars">★★★★★</div><p class="rc-text">"<strong style="color:rgba(249,115,22,.85)">Honest reliable affordable prices</strong> 👍"</p><div class="rc-au"><div class="rc-av">MS</div><div><div class="rc-name">Mona Sleiman</div><div class="rc-loc">Sydney · 1 yr ago</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="srv-head rev">
+      <div><span class="lbl">What We Do</span><h2 class="h2">Our Services</h2></div>
+      <a href="#contact" class="btn btn-lined">Request a Quote →</a>
+    </div>
+    <div class="srv-grid">
+      <div class="sc rev d1">
+        <div class="sc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Residential</h3><p>Safe, reliable electrical for homes and apartments.</p>
+        <ul class="sc-list"><li>Switchboard upgrades</li><li>Power points & lighting</li><li>Smoke alarms</li><li>LED downlights</li><li>Home renovations</li></ul>
+      </div>
+      <div class="sc rev d2">
+        <div class="sc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg></div>
+        <h3>Commercial</h3><p>Dependable solutions for offices, shops, and businesses.</p>
+        <ul class="sc-list"><li>Office fit-outs</li><li>Surge protection</li><li>Security & intercom</li><li>Timers & sensors</li><li>Compliance testing</li></ul>
+      </div>
+      <div class="sc rev d3">
+        <div class="sc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Industrial</h3><p>Professional electrical for factories and warehouses.</p>
+        <ul class="sc-list"><li>3-phase power</li><li>Machine installations</li><li>Control systems</li><li>Safety compliance</li><li>Preventive maintenance</li></ul>
+      </div>
+      <div class="sc sc-wide rev">
+        <div>
+          <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Emergency Electrical Repairs</h3>
+          <p>Power outages, switchboard faults, sparking wires — FuseTech responds fast. Available Mon–Sat around the clock.</p>
+          <ul class="sc-list" style="margin-top:12px;"><li>Power restoration</li><li>Switchboard faults</li><li>Fault detection</li><li>Storm damage</li></ul>
+          <a href="tel:0483235639" class="btn btn-or" style="margin-top:18px;">Call 0483 235 639</a>
+        </div>
+        <div class="sc-stats">
+          <div class="sc-stat"><div class="sc-stat-n">Fast</div><div class="sc-stat-l">Response for urgent calls</div></div>
+          <div class="sc-stat"><div class="sc-stat-n">Mon–Sat</div><div class="sc-stat-l">Available 24 hours</div></div>
+          <div class="sc-stat"><div class="sc-stat-n">All Sydney</div><div class="sc-stat-l">We come to you</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-in">
+      <div>
+        <span class="lbl rev">Why Choose Us</span>
+        <h2 class="h2 rev">Sydney's Honest,<br>Reliable Sparky</h2>
+        <div class="why-pts">
+          <div class="wp rev d1"><div class="wp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Licensed & Fully Insured</h4><p>NSW licence 480357C. Certified and fully covered on every job.</p></div></div>
+          <div class="wp rev d2"><div class="wp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Upfront Honest Pricing</h4><p>Clear quotes, no hidden surprises. You know the full cost before we start.</p></div></div>
+          <div class="wp rev d3"><div class="wp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Reliable & On Time</h4><p>Sam calls ahead and arrives when he says. We respect your time every time.</p></div></div>
+          <div class="wp rev d4"><div class="wp-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div><div><h4>Quality Workmanship</h4><p>No cutting corners. High professional standards with a guarantee on all work.</p></div></div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="why-card">
+          <h3>Honest Work.<br><span>Every Time.</span></h3>
+          <p>From Padstow to Parramatta — FuseTech builds long-term relationships.</p>
+          <div class="wc-list">
+            <div class="wci"><div class="wci-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Residential, commercial &amp; industrial</span></div>
+            <div class="wci"><div class="wci-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Home automation &amp; smart systems</span></div>
+            <div class="wci"><div class="wci-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Surge protection &amp; safety compliance</span></div>
+            <div class="wci"><div class="wci-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Security &amp; intercom systems</span></div>
+            <div class="wci"><div class="wci-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span>Emergency electrical response</span></div>
+          </div>
+          <div class="wc-lic"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> NSW Lic. 480357C</div>
+          <a href="tel:0483235639" class="btn btn-or" style="margin-top:16px;width:100%;justify-content:center;">Call Sam — 0483 235 639</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how">
+  <div class="wrap">
+    <div style="text-align:center" class="rev"><span class="lbl">Simple Process</span><h2 class="h2">How It Works</h2><p class="sub" style="margin:10px auto 0;text-align:center;">Getting sorted with FuseTech is quick and hassle-free.</p></div>
+    <div class="how-grid">
+      <div class="hs rev d1"><div class="hs-num">01</div><div class="hs-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg></div><h3>Call or Request Online</h3><p>Call 0483 235 639 or fill in the quote form. Sam will get back to you fast.</p></div>
+      <div class="hs rev d2"><div class="hs-num">02</div><div class="hs-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Get a Free Quote</h3><p>Upfront quote, no hidden fees. You decide — no pressure at all.</p></div>
+      <div class="hs rev d3"><div class="hs-num">03</div><div class="hs-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><h3>Job Done Right</h3><p>Sam arrives on time, works to a high standard, and leaves everything clean.</p></div>
+    </div>
+    <div class="how-cta rev">
+      <a href="tel:0483235639" class="btn btn-or" style="padding:13px 28px;font-size:14px;">Call 0483 235 639</a>
+      <a href="#contact" class="btn btn-lined">Request a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="areas-in">
+      <div>
+        <span class="lbl rev">Where We Work</span>
+        <h2 class="h2 rev">Serving All<br>Greater Sydney</h2>
+        <p class="sub rev">Based in Padstow, FuseTech covers homes and businesses across all of Sydney.</p>
+        <div class="area-pills rev">
+          <div class="ap">Padstow</div><div class="ap">Bankstown</div><div class="ap">Parramatta</div>
+          <div class="ap">Chatswood</div><div class="ap">North Sydney</div><div class="ap">Hornsby</div>
+          <div class="ap">Penrith</div><div class="ap">Cronulla</div><div class="ap">Kogarah</div>
+          <div class="ap">Sutherland</div><div class="ap">Bondi</div><div class="ap">Randwick</div>
+          <div class="ap">Liverpool</div><div class="ap">Campbelltown</div><div class="ap">Blacktown</div>
+          <div class="ap">+ All Sydney</div>
+        </div>
+      </div>
+      <div class="rev">
+        <div class="areas-cta">
+          <h3>Not Sure If We Cover Your Area?</h3>
+          <p>Give Sam a call — chances are we do. FuseTech covers the entire Greater Sydney region.</p>
+          <a href="tel:0483235639" class="areas-ph">0483 235 639</a>
+          <div class="hours-grid">
+            <div class="hr-row"><span class="hr-day">Sunday</span><span class="hr-c">Closed</span></div>
+            <div class="hr-row"><span class="hr-day">Monday</span><span class="hr-t">Open 24 Hours</span></div>
+            <div class="hr-row"><span class="hr-day">Tuesday</span><span class="hr-t">Open 24 Hours</span></div>
+            <div class="hr-row"><span class="hr-day">Wednesday</span><span class="hr-t">Open 24 Hours</span></div>
+            <div class="hr-row"><span class="hr-day">Thursday</span><span class="hr-t">Open 24 Hours</span></div>
+            <div class="hr-row"><span class="hr-day">Friday</span><span class="hr-t">Open 24 Hours</span></div>
+            <div class="hr-row"><span class="hr-day">Saturday</span><span class="hr-t">Open 24 Hours</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-in">
+      <div>
+        <span class="lbl rev">Get in Touch</span>
+        <h2 class="h2 inv rev">Ready to Get Started?</h2>
+        <p class="sub inv rev">Call Sam directly or fill in the form — we'll get back to you quickly with a free quote.</p>
+        <div class="c-ph rev">
+          <div class="c-ph-l">Call Sam Directly</div>
+          <div class="c-ph-n"><a href="tel:0483235639">0483 235 639</a></div>
+          <div class="c-ph-s">Mon–Sat: Open 24 Hours · Sunday: Closed</div>
+        </div>
+        <div class="c-dets rev">
+          <div class="cd"><div class="cd-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>Ftelectricialgroup@gmail.com</div>
+          <div class="cd"><div class="cd-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>Padstow NSW 2211 · All Greater Sydney</div>
+          <div class="cd"><div class="cd-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>NSW Electrical Contractor Lic. 480357C</div>
+        </div>
+      </div>
+      <div class="c-form rev">
+        <h3>Free Quote Request</h3>
+        <p>We'll respond quickly — usually same day.</p>
+        <div id="formWrap">
+          <div class="f2">
+            <div class="fg"><label>Name *</label><input type="text" id="fn" placeholder="Your name"></div>
+            <div class="fg"><label>Phone *</label><input type="tel" id="fp" placeholder="0400 000 000"></div>
+          </div>
+          <div class="fg"><label>Suburb</label><input type="text" placeholder="e.g. Padstow"></div>
+          <div class="fg"><label>Service</label>
+            <select><option value="">Select a service...</option><option>Switchboard Upgrade</option><option>Power Points</option><option>Smoke Alarms</option><option>LED Downlights</option><option>Renovation Wiring</option><option>Commercial Electrical</option><option>Industrial Electrical</option><option>Emergency Repair</option><option>Home Automation</option><option>Security &amp; Intercom</option><option>Other</option></select>
+          </div>
+          <div class="fg"><label>Message</label><textarea placeholder="Brief description of what you need..."></textarea></div>
+          <button class="btn btn-or" onclick="submitForm()" style="width:100%;justify-content:center;padding:13px;font-size:14px;">Send Quote Request →</button>
+          <p class="f-note">🔒 Your details are private and never shared.</p>
+        </div>
+        <div class="f-success" id="fSuccess">
+          <div class="f-si"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h4>Quote Request Sent!</h4>
+          <p>Sam will be in touch shortly. For urgent jobs call <a href="tel:0483235639" style="color:var(--orange);font-weight:600;">0483 235 639</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="#" class="ft-logo"><div class="logo-mark" style="width:30px;height:30px;border-radius:7px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="logo-name" style="color:#fff;font-size:15px;">FuseTech</div><div class="logo-sub">Electrical Group</div></div></a>
+        <p class="ft-tag">Licensed electricians serving Padstow and all Greater Sydney. Residential, commercial &amp; industrial.</p>
+        <a href="tel:0483235639" class="ft-cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg>0483 235 639</a>
+        <a href="mailto:Ftelectricialgroup@gmail.com" class="ft-cl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Ftelectricialgroup@gmail.com</a>
+      </div>
+      <div class="ft-col"><h4>Services</h4><ul class="ft-links"><li><a href="#services">Residential</a></li><li><a href="#services">Commercial</a></li><li><a href="#services">Industrial</a></li><li><a href="#services">Switchboard Upgrades</a></li><li><a href="#services">Smoke Alarms</a></li><li><a href="#services">Emergency Repairs</a></li></ul></div>
+      <div class="ft-col"><h4>Company</h4><ul class="ft-links"><li><a href="#why">Why Choose Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#areas">Service Areas</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Free Quote</a></li></ul></div>
+      <div class="ft-col"><h4>Service Areas</h4><ul class="ft-links"><li><a href="#">Padstow &amp; Bankstown</a></li><li><a href="#">Parramatta</a></li><li><a href="#">North Sydney</a></li><li><a href="#">Sutherland Shire</a></li><li><a href="#">Eastern Suburbs</a></li><li><a href="#">All Greater Sydney</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <span class="ft-copy">© 2025 FuseTech Electrical Group Pty Ltd · All Rights Reserved</span>
+      <span class="ft-lic">NSW Electrical Contractor Lic. 480357C</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT -->
+<div class="float" id="floatCta">
+  <a href="tel:0483235639" class="float-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.27z"/></svg>0483 235 639</a>
+</div>
+
+<script>
+  const revEls = document.querySelectorAll('.rev');
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}}),{threshold:.1});
+  revEls.forEach(el => obs.observe(el));
+  window.addEventListener('scroll', () => document.getElementById('floatCta').classList.toggle('on', scrollY > 340));
+  function submitForm(){
+    const n=document.getElementById('fn').value,p=document.getElementById('fp').value;
+    if(!n||!p){alert('Please enter your name and phone number.');return;}
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('fSuccess').style.display='block';
+  }
+</script>
+</body>
+</html>
