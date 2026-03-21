@@ -699,4 +699,15 @@ footer{background:var(--black);padding:48px 0 20px}
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const revEls = document.querySelectorAll('.rev');
-  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in')
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in')}}),{threshold:.1});
+  revEls.forEach(el => obs.observe(el));
+  window.addEventListener('scroll', () => document.getElementById('floatCta').classList.toggle('on', scrollY > 340));
+  function submitForm(){
+    const n=document.getElementById('fn').value,p=document.getElementById('fp').value;
+    if(!n||!p){alert('Please enter your name and phone number.');return;}
+    document.getElementById('formWrap').style.display='none';
+    document.getElementById('fSuccess').style.display='block';
+  }
+</script>
+</body>
+</html>
