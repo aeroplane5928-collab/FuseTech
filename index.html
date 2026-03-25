@@ -649,17 +649,19 @@ footer{background:var(--black);padding:48px 0 20px}
         <h3>Free Quote Request</h3>
         <p>We'll respond quickly — usually same day.</p>
         <div id="formWrap">
+          <form id="quoteForm" action="https://formspree.io/f/mvzvpdrr" method="POST">
           <div class="f2">
-            <div class="fg"><label>Name *</label><input type="text" id="fn" placeholder="Your name"></div>
-            <div class="fg"><label>Phone *</label><input type="tel" id="fp" placeholder="0400 000 000"></div>
+            <div class="fg"><label>Name *</label><input type="text" id="fn" name="name" placeholder="Your name" required></div>
+            <div class="fg"><label>Phone *</label><input type="tel" id="fp" name="phone" placeholder="0400 000 000" required></div>
           </div>
-          <div class="fg"><label>Suburb</label><input type="text" placeholder="e.g. Padstow"></div>
+          <div class="fg"><label>Suburb</label><input type="text" name="suburb" placeholder="e.g. Padstow"></div>
           <div class="fg"><label>Service</label>
-            <select><option value="">Select a service...</option><option>Switchboard Upgrade</option><option>Power Points</option><option>Smoke Alarms</option><option>LED Downlights</option><option>Renovation Wiring</option><option>Commercial Electrical</option><option>Industrial Electrical</option><option>Emergency Repair</option><option>Home Automation</option><option>Security &amp; Intercom</option><option>Other</option></select>
+            <select name="service"><option value="">Select a service...</option><option>Switchboard Upgrade</option><option>Power Points</option><option>Smoke Alarms</option><option>LED Downlights</option><option>Renovation Wiring</option><option>Commercial Electrical</option><option>Industrial Electrical</option><option>Emergency Repair</option><option>Home Automation</option><option>Security &amp; Intercom</option><option>Other</option></select>
           </div>
-          <div class="fg"><label>Message</label><textarea placeholder="Brief description of what you need..."></textarea></div>
-          <button class="btn btn-or" onclick="submitForm()" style="width:100%;justify-content:center;padding:13px;font-size:14px;">Send Quote Request →</button>
+          <div class="fg"><label>Message</label><textarea name="message" placeholder="Brief description of what you need..."></textarea></div>
+          <button type="submit" class="btn btn-or" style="width:100%;justify-content:center;padding:13px;font-size:14px;">Send Quote Request →</button>
           <p class="f-note">🔒 Your details are private and never shared.</p>
+          </form>
         </div>
         <div class="f-success" id="fSuccess">
           <div class="f-si"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -702,12 +704,34 @@ footer{background:var(--black);padding:48px 0 20px}
   const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in')}}),{threshold:.1});
   revEls.forEach(el => obs.observe(el));
   window.addEventListener('scroll', () => document.getElementById('floatCta').classList.toggle('on', scrollY > 340));
-  function submitForm(){
+  const quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
     const n=document.getElementById('fn').value,p=document.getElementById('fp').value;
     if(!n||!p){alert('Please enter your name and phone number.');return;}
-    document.getElementById('formWrap').style.display='none';
-    document.getElementById('fSuccess').style.display='block';
-  }
+    const btn = quoteForm.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('formWrap').style.display='none';
+        document.getElementById('fSuccess').style.display='block';
+      } else {
+        btn.textContent = 'Send Quote Request →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call us directly.');
+      }
+    } catch(err) {
+      btn.textContent = 'Send Quote Request →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us directly.');
+    }
+  });
 </script>
 </body>
 </html>
